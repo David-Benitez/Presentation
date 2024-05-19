@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <NextUIProvider>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        Hola
+        Hola, este va a ser mi sitio de presentación
         <Buttons />
         <Buttons2 />
         <ViewModal />

@@ -1,14 +1,29 @@
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, RadioGroup, Radio} from "@nextui-org/react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+  RadioGroup,
+  Radio,
+} from "@nextui-org/react";
+import { useState } from "react";
 
 const ViewModal = () => {
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
-  const [modalPlacement, setModalPlacement] = React.useState("auto");
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [modalPlacement, setModalPlacement] = useState("auto");
 
   return (
     <div className="flex flex-col gap-2">
-      <Button onPress={onOpen} className="max-w-fit">Open Modal</Button>
+      <div className="flex">
+        <Button onPress={onOpen} className="w-full">
+          Abrir Modal
+        </Button>
+      </div>
       <RadioGroup
-        label="Select modal placement"
+        label="Grupo"
         orientation="horizontal"
         value={modalPlacement}
         onValueChange={setModalPlacement}
@@ -22,13 +37,13 @@ const ViewModal = () => {
       </RadioGroup>
       <Modal
         isOpen={isOpen}
-        placement={modalPlacement}
+        // placement={modalPlacement}
         onOpenChange={onOpenChange}
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Título</ModalHeader>
               <ModalBody>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -55,6 +70,6 @@ const ViewModal = () => {
       </Modal>
     </div>
   );
-}
+};
 
 export default ViewModal;
